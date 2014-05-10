@@ -25,7 +25,7 @@ public class GlobalPlayerSettings : MonoBehaviour
 	{
 		if (active)
 		{
-			if (GUI.Button(new Rect(100, 100, 100, 100), "SC"))
+			if (GUI.Button(new Rect(100, 100, 100, 100), "SmoothCam"))
 			{
 				if (smoothCam)
 				{

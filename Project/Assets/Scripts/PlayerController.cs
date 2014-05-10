@@ -5,9 +5,7 @@ public class PlayerController : MonoBehaviour
 {
 	public float playerHealth = 100f;
 	public float playerMana = 100f;
-
-	private bool playerDead = false;
-	private bool inEnterTrigger = false;
+	public bool playerDead = false;
 
 	public void Awake()
 	{
@@ -28,24 +26,16 @@ public class PlayerController : MonoBehaviour
 			playerDead = false;
 		}
 
-		if (inEnterTrigger)
+		if (playerMana <= 0)
 		{
-			if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				Debug.Log("Entered");
-			}
+			playerMana = 0;
+			Debug.Log("Out of Mana");
 		}
-	}
 
-	public void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.transform.tag == "Enterable")
+		//Debug
+		if (Input.GetKeyDown(KeyCode.M))
 		{
-			inEnterTrigger = true;
-		}
-		else
-		{
-			inEnterTrigger = false;
+			playerMana = playerMana + 100;
 		}
 	}
 }
