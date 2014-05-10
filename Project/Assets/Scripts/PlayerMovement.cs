@@ -16,46 +16,6 @@ public class PlayerMovement : MonoBehaviour
 	public void FixedUpdate() 
 	{
 		rigidbody2D.velocity = new Vector2(
-			Mathf.Lerp(0, Input.GetAxis("Horizontal") * speed, lerpVal), 
-			Mathf.Lerp(0, Input.GetAxis("Vertical") * speed, lerpVal)
-		);
-	
-		if (Input.GetAxis("Vertical") > 0)
-		{
-			sr.sprite = spr_up;
-		}
-		else if (Input.GetAxis("Vertical") < 0)
-		{
-			sr.sprite = spr_down;
-		}
-
-		if (Input.GetAxis("Horizontal") > 0)
-		{
-			sr.sprite = spr_right;
-		}
-		else if (Input.GetAxis("Horizontal") < 0)
-		{
-			sr.sprite = spr_left;
-		}
-
-		if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
-		{
-			sr.sprite = spr_up;
-		}
-
-		if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
-		{
-			sr.sprite = spr_up;
-		}
-
-		if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
-		{
-			sr.sprite = spr_down;
-		}
-
-		if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
-		{
-			sr.sprite = spr_down;
-		}
+			Mathf.Lerp(0, Input.GetAxis("Horizontal") * speed, lerpVal), rigidbody2D.velocity.y);
 	}
 }
